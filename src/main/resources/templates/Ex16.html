@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/ex16" method="post">
+        <p>チャットアプリ</p>
+        名前：<input type="text" name="name"><br>
+        コメント：<br>
+        <textarea name="newMessage" id="newMessage"rows="4" cols="30" ></textarea><br>
+        <button type="submit">投稿！</button>
+    </form>
+
+    <div>
+        <p th:txet="${name}"></p>
+        <p th:text="${messages}"></p>
+    </div>
+
+</html>

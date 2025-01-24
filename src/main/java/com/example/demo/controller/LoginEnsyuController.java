@@ -29,10 +29,10 @@ public class LoginEnsyuController {
         return "login-ensyu-form";
     }
 
-    @RequestMapping("/to-login-page")
-    public String toPage1() {
-        return "result-login-ok-page";
-    }
+    // @RequestMapping("/to-login-page")
+    // public String toPage1() {
+    //     return "result-login-ok-page";
+    // }
 
     @RequestMapping("/to-login-myPage")
     public String toMyPage() {
