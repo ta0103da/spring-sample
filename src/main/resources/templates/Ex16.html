@@ -12,13 +12,17 @@
         <p>チャットアプリ</p>
         名前：<input type="text" name="name"><br>
         コメント：<br>
-        <textarea name="newMessage" id="newMessage"rows="4" cols="30" ></textarea><br>
-        <button type="submit">投稿！</button>
+        <textarea name="message" id="meessage"rows="4" cols="30" ></textarea><br>
+        <input type="submit" value="投稿！"></input>
     </form>
 
-    <div>
-        <p th:txet="${name}"></p>
-        <p th:text="${messages}"></p>
+    <div><hr>
+        <span th:each="chat : ${messageList}">
+            <p th:text="${chat.name}"></p>
+            <p th:text="${chat.message}"></p>
+            <hr>
+        </span>
+
     </div>
 
 </html>

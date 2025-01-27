@@ -15,23 +15,23 @@ import com.example.demo.form.UserForm;
 @RequestMapping("/ex16")
 public class Ex16Cntroller {
 
-    private List<String> messages = new ArrayList<>();
+    private List<UserForm> messageList = new ArrayList<>();
 
     @RequestMapping("")
-    public String index(UserForm user,Model model){
-
-        model.addAttribute("name",user.getName());
-        model.addAttribute("messages",user.getNewMessage());
-        model.addAttribute("newMessage", "");
+    public String index(){
+        if (messageList == null) {
+            messageList = new ArrayList<>();
+        }
 
         return"ex16";
+
     }
 
-    @PostMapping("/submit")
-    public String postMessage(String newMessage, Model model) {
-        if (newMessage != null && !newMessage.trim().isEmpty()) {
-            messages.add(newMessage);
-        }
-        return "chat";
+    @PostMapping("")
+    public String Post(UserForm user,Model model){
+
+        messageList.add(0, new UserForm(user.getName(),user.getMessage()));
+        model.addAttribute("messageList", messageList);
+        return"ex16";
     }
 }
